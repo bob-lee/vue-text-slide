@@ -1,17 +1,56 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button @click="next">next</button>
+    <div class="outer">
+      <TextSlide
+        :txt="text"
+        :styles="{background: 'red', height:'2em', width: '2em', borderRadius: '1em'}"
+        :styles-inner="{color: 'white', alignItems:'center', justifyContent:'center'}"
+        distanceX="50%"
+        data-key="b"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TextSlide from "./components/TextSlide";
+
+const TEXTS = [
+  '0',
+  '11',
+  '222',
+  '33',
+  '444',
+]
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TextSlide
+  },
+  data () {
+    return {
+      text: '',
+      i: 0,
+      TEXTS,
+    }
+  },
+  mounted() {
+    this.next()
+  },
+  methods: {
+    next() {
+      this.i = this.getIndex()
+      this.text = TEXTS[this.i]
+    },
+    getIndex() {
+      const newIndex = this.i === (TEXTS.length - 1) 
+        ? 0
+        : this.i + 1
+      return newIndex
+    },
   }
 }
 </script>

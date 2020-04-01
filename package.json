@@ -1,12 +1,29 @@
 {
-  "name": "vue-text-slide-library",
+  "name": "vue-text-slide",
+  "author": "Bob Lee <bob.bumsuk.lee@gmail.com>",
+  "license": "MIT",
   "version": "0.1.0",
-  "private": true,
+  "description": "Vue component to animate text changes with default or custom styles",
+  "keywords": [
+    "vue",
+    "component",
+    "animation",
+    "text change"
+  ],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:lib": "vue-cli-service build --target lib --name vue-text-slide ./src/App.vue",
     "lint": "vue-cli-service lint"
   },
+  "main": "./dist/vue-text-slide.common.js",
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
   "dependencies": {
     "core-js": "^3.6.4",
     "vue": "^2.6.11"
