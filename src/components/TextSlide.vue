@@ -69,13 +69,11 @@ export default {
     this.container = document.querySelector(`[data-key=${this.dataKey}].bl-animate-value-box`)
     this.inners = this.container.querySelectorAll('.inner')
     if (this.styles) {
-      console.log(this.dataKey, this.styles)
       Object.keys(this.styles).forEach(x => {
         this.container.style[x] = this.styles[x]
       })
     }
     if (this.stylesInner) {
-      console.log(this.dataKey, this.stylesInner)
       Object.keys(this.stylesInner).forEach(x => {
         this.inners.forEach(y => y.style[x] = this.stylesInner[x])
       })
@@ -94,20 +92,16 @@ export default {
   },
   methods: {
     apply(styles) {
-      console.log('apply', styles)
       if (styles) {
         Object.keys(styles).forEach(x => {
           this.container.style[x] = styles[x]
-          console.log(x, styles[x])
         })
       }
     },
     applyInner(styles) {
-      console.log('applyInner', styles)
       if (styles) {
         Object.keys(styles).forEach(x => {
           this.inner.style[x] = styles[x]
-          console.log(x, styles[x])
         })
       }
     },
@@ -151,9 +145,9 @@ export default {
   display: inline-block;
   position: relative;
   height: 1.5em;
-  width: 15em;
-  font-size: 1.6rem;
-  font-weight: 600;
+  width: 35em;
+  font-size: 1rem;
+  font-weight: 300;
 }
 .bl-animate-value-box .inner {
   position: absolute;

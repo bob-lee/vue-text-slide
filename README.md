@@ -1,24 +1,29 @@
-# vue-text-slide-library
+# vue-text-slide
 
-## Project setup
-```
-yarn install
-```
+Vue component `TextSlide` to animate text changes with default or custom styles. Whenever your data property changes, the component will animate leaving / entering values. 
 
-### Compiles and hot-reloads for development
+[Demo](https://codesandbox.io/s/vue-text-slide-demo-zlq32)
+
 ```
-yarn serve
+<TextSlide :txt="msg" />
 ```
 
-### Compiles and minifies for production
+Default styles can be overriden like:
+
 ```
-yarn build
+<TextSlide
+  :txt="count"
+  :styles="{background:'red', height:'2em', width:'2em', borderRadius:'1em'}"
+  :styles-inner="{color:'white', alignItems:'center', justifyContent:'center'}"
+  distance-x="50%"
+  data-key="give-me-unique-key"
+/>
 ```
 
-### Lints and fixes files
-```
-yarn lint
-```
+## optional props
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- `styles`, an object to style the component's outer box
+- `styles-inner`, an object to style the component's inner box
+- `distance-x`, to override the default translateX amount `5%`
+- `data-key`, optional to make each component unique for application that uses multiple components
+
