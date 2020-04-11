@@ -4,6 +4,8 @@ Vue component `TextSlide` to animate text changes with default or custom styles.
 
 [Demo](https://codesandbox.io/s/vue-text-slide-demo-zlq32)
 
+<img src="vue-text-slide.gif" alt="vue-text-slide demo" />
+
 ```
 <TextSlide :txt="msg" />
 ```
