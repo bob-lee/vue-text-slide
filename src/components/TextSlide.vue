@@ -47,7 +47,7 @@ export default {
       required: false,
     }
   },
-  data () {
+  data: function () {
     return {
       container: null,
       inner: null,
@@ -61,11 +61,11 @@ export default {
     }
   },
   watch: {
-    txt(v) {
+    txt: function(v) {
       this.showNew(v)
     },
   },
-  mounted() {
+  mounted: function() {
     this.container = document.querySelector(`[data-key=${this.dataKey}].bl-animate-value-box`)
     this.inners = this.container.querySelectorAll('.inner')
     if (this.styles) {
@@ -87,25 +87,25 @@ export default {
 
     this.enterDiv.addEventListener('transitionend', this.enterEnd);
   },
-  beforeDestroy() {
+  beforeDestroy: function() {
     this.enterDiv.removeEventListener('transitionend', this.enterEnd);
   },
   methods: {
-    apply(styles) {
+    apply: function(styles) {
       if (styles) {
         Object.keys(styles).forEach(x => {
           this.container.style[x] = styles[x]
         })
       }
     },
-    applyInner(styles) {
+    applyInner: function(styles) {
       if (styles) {
         Object.keys(styles).forEach(x => {
           this.inner.style[x] = styles[x]
         })
       }
     },
-    showNew(text) {
+    showNew: function(text) {
       if (this.entered) {
         this.leaveText = text
         this.enterDiv.style.transform = `translateX(${this.distanceX || DISTANCE_X})`
@@ -121,7 +121,7 @@ export default {
       }
       this.entered = !this.entered
     },
-    enterEnd() {
+    enterEnd: function() {
       if (this.entered) {
         this.leaveDiv.classList.add('notransition');
         this.leaveDiv.style.transform = `translateX(-${this.distanceX || DISTANCE_X})`
